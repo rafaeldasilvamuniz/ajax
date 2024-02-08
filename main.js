@@ -1,13 +1,23 @@
-document.addEventListener('DOMContentLoaded', function(){
-    document.getElementById('btn-perfil').addEventListener('click', function(){
-        //AJAX - Asynchronous Javascript and XML
-        try {
-          const xhttp = new XMLHttpRequest();
-          const endpoint = `https://github.com/rafaeldasilvamuniz`;
-          xhttp.open('GET', endpoint);
-          xhttp.send();
-        } catch (error) {
-            console.error("A URL não abre!");
-        }
-    })
-  })
+document.addEventListener('DOMContentLoaded',function(){
+    const nameElement = document.querySelector('#name');
+    const usernameElement = document.querySelector('#username');
+    const avatarElement = document.querySelector('#avatar');
+    const reposElement = document.querySelector('#repos');
+    const followersElement = document.querySelector('#followers');
+    const followingElement = document.querySelector('#following');
+    const linkElement = document.querySelector('#link');
+
+    fetch('https://api.github.com/users/rafaeldasilvamuniz')
+       .then(function(res){
+           return res.json();
+       })
+       .then(function(json){
+           nameElement.innetText = json.name;
+           usernameElement.innetText = json.login;
+           avatarElement.src = json.avatar_url;
+           followersElement.innetText = json.followersElement;
+           followingElement.innetText = json.followingElement;
+           repos.innetText = json.public_repos;
+           linkElement.href = json.html_url;
+       })
+})
