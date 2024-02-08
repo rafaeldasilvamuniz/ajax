@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded',function(){
-    const nameElement = document.querySelector('#name');
-    const usernameElement = document.querySelector('#username');
-    const avatarElement = document.querySelector('#avatar');
+    const nameElement = document.querySelector('#profile-name');
+    const usernameElement = document.querySelector('#profile-username');
+    const avatarElement = document.querySelector('#profile-avatar');
     const reposElement = document.querySelector('#repos');
     const followersElement = document.querySelector('#followers');
     const followingElement = document.querySelector('#following');
-    const linkElement = document.querySelector('#link');
+    const linkElement = document.querySelector('#perfil');
 
     fetch('https://api.github.com/users/rafaeldasilvamuniz')
        .then(function(res){
